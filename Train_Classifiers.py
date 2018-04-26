@@ -3,50 +3,22 @@
 
 import nltk
 import random
-from nltk.classify.scikitlearn import SklearnClassifier
 import pickle
 
 from sklearn.naive_bayes import MultinomialNB, BernoulliNB
 from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.svm import SVC, LinearSVC, NuSVC
 
-from nltk.classify import ClassifierI
-from statistics import mode
 from nltk.tokenize import word_tokenize
+from nltk.classify.scikitlearn import SklearnClassifier
 
+from vote_classifier import VoteClassifier
 
-# Building our classifier class.
-# Inheriting from NLTK's ClassifierI.
-# Next,assigning the list of classifiers that are passed to our class to self._classifiers.
-class VoteClassifier(ClassifierI):
-    def __init__(self, *classifiers):
-        self._classifiers = classifiers
-
-    #Creating our own classify method.
-    #After iterating we return mode(votes), which just returns the most popular vote.
-    def classify(self, features):
-        votes = []
-        for c in self._classifiers:
-            v = c.classify(features)
-            votes.append(v)
-        return mode(votes)
-
-    #Defining another parameter, confidence.
-    #Since we have algorithms voting, we can tally the votes for and against the winning vote, and call this "confidence.
-    def confidence(self, features):
-        votes = []
-        for c in self._classifiers:
-            v = c.classify(features)
-            votes.append(v)
-
-        choice_votes = votes.count(mode(votes))
-        conf = choice_votes / len(votes)
-        return conf
 
 # Defining and Accessing the corporas.
 # In total, approx 10,000 feeds to be trained and tested on.
-short_pos = open("positive.txt","r").read()
-short_neg = open("negative.txt","r").read()
+short_pos = open("corporas/positive.txt","r").read()
+short_neg = open("corporas/negative.txt","r").read()
 
 # move this up here
 all_words = []

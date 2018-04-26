@@ -8,17 +8,14 @@ An analysis of the `twitter` data set included in the `nltk` corpus.
 
 
 - [x] An implementation of `nltk.NaiveBayesClassifier` trained against **1000 tweets**. Implemented in `Train_Classifiers.py`.
-- [x] Using `sklearn`
-  - [x] **Naive Bayes**: 
-    - [x] `MultinomialNB`: 
-    - [x] `BernoulliNB`:
-  - [x] **Linear Model**
-    - [x] `LogisticRegression`:
-    - [x] `SGDClassifier`:
-  - [x] **SVM**
-    - [x] `SVC`: 
-    - [x] `LinearSVC`:
-    - [x] `NuSVC`:
+- [x] **Naive Bayes**: 
+  - [x] `MultinomialNB`: 
+  - [x] `BernoulliNB`:
+- [x] **Linear Model**
+  - [x] `LogisticRegression`:
+  - [x] `SGDClassifier`:
+- [x] **SVM**
+  - [x] `LinearSVC`:
 
 Implemented in `Scikit_Learn_Classifiers.py`
 
